@@ -1,0 +1,23 @@
+
+<html>
+<head>
+         <title></title>
+</head>
+	<body>
+		<div style="background-color: yellow;">
+			<h2><%= @restaurante.nome %></h2>
+		     <p>
+		               <b >ID:</b> <%=  @restaurante.id %>
+		     </p>
+		     <p>
+		               <b>Endereço:</b> <%= @restaurante.endereco %>
+		     </p>
+		     <p>
+		               <b>Especialidade:</b> <%= @restaurante.especialidade %>
+		     </p>
+	     </div>
+	     <%= link_to 'Voltar', action: 'index' %>
+	     <%= link_to "Inicio", controller: "inicio", action: "index" %>
+	     <%= link_to 'Editar', action: 'edit', id: @restaurante.id %>
+	</body>
+</html>
