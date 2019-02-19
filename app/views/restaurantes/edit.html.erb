@@ -1,0 +1,11 @@
+<h1>Editando..</h1>
+
+<%= form_for @restaurante do |f| %>
+  Nome: <%= f.text_field :nome %><br/>
+  Endereço: <%= f.text_field :endereco %><br/>
+  Especialidade: <%= f.text_field :especialidade %><br/>
+  Senha: <%= password_field_tag(:especialidade) %><br/>
+  <%= f.submit "Atualizar"%>
+<% end %>
+
+<h3><%= link_to "Voltar", action: 'index'%></h3>
