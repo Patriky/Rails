@@ -3,6 +3,7 @@
          <title></title>
 </head>
 	<body>
+		<h3> <%= link_to 'Home', controller: 'inicio', action: 'index' %> </h3>
 		<h2 style="color:cornflowerblue "> Restaurantes</h2>
 
 		<%= form_tag("/search", method: "get") do %>
@@ -16,8 +17,6 @@
 				Nenhum nome
 			</div>
 		<% else %>
-		<h3> <%= link_to 'Novo', action: 'new' %> 
-		<%= link_to 'Inicio', controller: 'inicio', action: 'index' %> </h3>
 			<% @restaurantes.each do |rest| %>
 				<li><b> Nome:</b> <%= rest.nome %> </li>
 				<p> 
@@ -27,6 +26,7 @@
 				</p>
 			<% end %>
 		<% end %>
+		<h3> <%= link_to 'New', action: 'new' %> </h3>
 	</body>
 
 

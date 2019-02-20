@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :qualificacoes
+  resources :clientes
   match 'ola' => 'ola_mundo#index', via: 'get'
   #match 'restaurantes' => 'restaurantes#index', via: 'get'
  
@@ -10,6 +12,6 @@ Rails.application.routes.draw do
   resources :inicio
   #get 'inicio/index'
   
-  root 'restaurantes#index'
+  root 'inicio#index'
 
 end
