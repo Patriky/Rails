@@ -3,10 +3,22 @@ class RestaurantesController < ApplicationController
 
 	def index
 		@restaurantes = Restaurante.order :nome
+		respond_to do |format|
+			format.html
+			format.xml {render xml: @restaurantes}
+			format.json {render json: @restaurantes}
+		end
+
 	end
 
 	def show
-		@restaurante = Restaurante.find(params[:id])		
+		@restaurante = Restaurante.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.xml {render xml: @restaurante}
+			format.json {render json: @restaurante}
+		end
+
 	end
 
 	def destroy
@@ -22,9 +34,14 @@ class RestaurantesController < ApplicationController
 
 	def create
 		@restaurante = Restaurante.new restaurante_params
-		@restaurante.save
 
-		redirect_to(action: 'show', id: @restaurante)
+		if @restaurante.save
+			redirect_to(action: 'show', id: @restaurante)
+		else 
+			render action: 'new'
+			p "Erro ao criar um novo Restaurante"
+		end
+			
 	end
 
 	def edit
@@ -33,8 +50,12 @@ class RestaurantesController < ApplicationController
 
 	def update
 		@restaurante = Restaurante.find(params[:id])
-		@restaurante.update_attributes restaurante_params
-		redirect_to(action: 'show', id: @restaurante)
+		if @restaurante.update_attributes restaurante_params
+			redirect_to(action: 'show', id: @restaurante)
+		else
+			render action: 'edit'
+		end 
+
 	end
 
 	def restaurante_params

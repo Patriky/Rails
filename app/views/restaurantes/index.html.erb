@@ -4,22 +4,30 @@
 </head>
 	<body>
 		<h2 style="color:cornflowerblue "> Restaurantes</h2>
+
+		<%= form_tag("/search", method: "get") do %>
+		  <%= label_tag(:q, "Procurar restaurantes:") %>
+		  <%= text_field_tag(:q) %>
+		  <%= submit_tag("Search") %>
+		<% end %>
+
 		<% if @restaurantes.empty? %>
 			<div class="popup">
 				Nenhum nome
 			</div>
 		<% else %>
-		<%= link_to 'Novo', action: 'new' %>
+		<h3> <%= link_to 'Novo', action: 'new' %> 
+		<%= link_to 'Inicio', controller: 'inicio', action: 'index' %> </h3>
 			<% @restaurantes.each do |rest| %>
 				<li><b> Nome:</b> <%= rest.nome %> </li>
 				<p> 
 					<%= link_to 'Mostrar', action: 'show', id: rest%>
 					<%= link_to 'Deletar', {action: 'destroy', id: rest}, {method: 'delete'} %> 
-					<%= link_to 'Inicio', controller: 'inicio', action: 'index' %>
 					<%= link_to 'Editar', action: 'edit', id: rest %>
 				</p>
 			<% end %>
 		<% end %>
 	</body>
+
 
 </html>
