@@ -5,6 +5,13 @@ class QualificacoesController < ApplicationController
   # GET /qualificacoes.json
   def index
     @qualificacoes = Qualificacao.all
+
+    # SELECT q.nota as nota, q.valor_gasto as valor, c.nome as cliente, r.nome as restaurante0
+    # FROM qualificacoes as q, clientes as c, restaurantes as r
+    # WHERE q.cliente_id = c.id AND q.restaurante_id = r.id;
+
+
+
   end
 
   # GET /qualificacoes/1

@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.number_field :cliente_id %>
+    <%= form.collection_select(:cliente_id, Cliente.order(:nome),:id, :nome, :prompt => true) %>
   </div>
 
   <div class="field">
     <%= form.label :restaurante_id %>
-    <%= form.number_field :restaurante_id %>
+    <%= form.collection_select(:restaurante_id, Restaurante.order(:nome), :id, :nome, :prompt => true) %>
   </div>
 
   <div class="field">
     <%= form.label :nota %>
-    <%= form.text_field :nota %>
+    <%= form.number_field(:nota, in: 1.0..5.0, step: 0.1) %>
   </div>
 
   <div class="field">
     <%= form.label :valor_gasto %>
-    <%= form.text_field :valor_gasto %>
+    <%= form.number_field :valor_gasto, step: 0.1 %>
   </div>
 
   <div class="actions">
