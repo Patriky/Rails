@@ -58,6 +58,15 @@ class RestaurantesController < ApplicationController
 
 	end
 
+	def search
+		p "*"*100
+		p 'ENTROU NO search'
+		p "*"*100
+		@restaurante = Restaurante.find(params[:id])
+
+		redirect_to(action: 'index')
+	end
+
 	def restaurante_params
 		params.require(:restaurante).permit(:nome, :endereco, :especialidade)
 	end

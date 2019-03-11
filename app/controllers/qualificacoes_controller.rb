@@ -21,11 +21,15 @@ class QualificacoesController < ApplicationController
 
   # GET /qualificacoes/new
   def new
-    @qualificacao = Qualificacao.new
+    @clientes = Cliente.order :nome
+    @restaurantes = Restaurante.order :nome
+    @qualificacao = Qualificacao.new  
   end
 
   # GET /qualificacoes/1/edit
   def edit
+    @clientes = Cliente.order :nome
+    @restaurantes = Restaurante.order :nome    
   end
 
   # POST /qualificacoes

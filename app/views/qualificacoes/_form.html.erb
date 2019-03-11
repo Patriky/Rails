@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.collection_select(:cliente_id, Cliente.order(:nome),:id, :nome, :prompt => true) %>
+    <%= form.collection_select(:cliente_id, @clientes,:id, :nome, :prompt => true) %>
   </div>
 
   <div class="field">
     <%= form.label :restaurante_id %>
-    <%= form.collection_select(:restaurante_id, Restaurante.order(:nome), :id, :nome, :prompt => true) %>
+    <%= form.collection_select(:restaurante_id, @restaurantes, :id, :nome, :prompt => true) %>
   </div>
 
   <div class="field">
