@@ -59,11 +59,10 @@ class RestaurantesController < ApplicationController
 	end
 
 	def search
-		p "*"*100
-		p 'ENTROU NO search'
-		p "*"*100
-		@restaurante = Restaurante.find(params[:id])
-
+		vars = request.query_parameters
+		p '#'*100
+		p vars['q']
+		p '#'*100
 		redirect_to(action: 'index')
 	end
 

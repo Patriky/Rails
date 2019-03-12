@@ -11,6 +11,7 @@
 		  <%= text_field_tag(:q) %>
 		  <%= submit_tag("Search") %>
 		<% end %>
+		<br/>
 
 		<% if @restaurantes.empty? %>
 			<div class="popup">
@@ -24,6 +25,7 @@
 					<%= link_to 'Deletar', {action: 'destroy', id: rest}, {method: 'delete'} %> 
 					<%= link_to 'Editar', action: 'edit', id: rest %>
 				</p>
+				<br/>
 			<% end %>
 		<% end %>
 		<h3> <%= link_to 'New', action: 'new' %> </h3>

@@ -15,6 +15,14 @@
 		     <p>
 		               <b>Especialidade:</b> <%= @restaurante.especialidade %>
 		     </p>
+		     <% if @restaurante.qualificacoes.exists? %>
+			     <p>
+			               <b>Número de qualificações:</b> <%= @restaurante.qualificacoes.count %>
+			     </p>
+			     <p>
+			               <b>Média:</b> <%= @restaurante.qualificacoes.average(:nota) %>
+			     </p>
+		     <% end %>
 	     </div>
 	     <%= link_to 'Voltar', action: 'index' %>
 	     <%= link_to "Inicio", controller: "inicio", action: "index" %>
